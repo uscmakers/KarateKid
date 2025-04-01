@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO.Ports;
 using System;
+using System.Numerics;
 
 public class ArduinoTest : MonoBehaviour
 {
-    SerialPort data_stream = new SerialPort("COM4", 9600);
-    public float length = 0f;
+
+    public int numSensors;
+    UnityEngine.Vector3[] finalPoses;
+    SerialPort data_stream = new SerialPort("COM8", 115200);
+    public float[] length;
     // Start is called before the first frame update
     void Start()
     {
+        finalPoses = new UnityEngine.Vector3[numSensors];
         data_stream.Open();
     }
 
@@ -26,18 +31,20 @@ public class ArduinoTest : MonoBehaviour
             //0 is roll, 1 is pitch, 2 is yaw, heading towards 2 big holes 
             float[] orientation = new float[3];
 
-            for(int i = 0; i < 3; i++){
-                orientation[i] = float.Parse(oS[i]) * Mathf.PI / 180;
-                print(orientation[i]);
+            for(int i = 1; i < 4; i++){
+                orientation[i-1] = float.Parse(oS[i]) * Mathf.PI / 180;
+                //print(orientation[i - 1]);
             }
-            Vector3 finalPos;
+            UnityEngine.Vector3 finalPos;
             finalPos.z = Mathf.Cos(orientation[2]) * Mathf.Cos(orientation[1]);
             finalPos.x = Mathf.Sin(orientation[2]) * Mathf.Cos(orientation[1]);
             finalPos.y = -Mathf.Sin(orientation[1]);
             finalPos.Normalize();
-            finalPos *= length;
+            finalPos *= length[int.Parse(oS[0])];
+            finalPoses[int.Parse(oS[0])] = finalPos;
             print(finalPos);
-            transform.position = finalPos;
+            //transform.GetChild(int.Parse(oS[0])).transform.position = finalPoses[int.Parse(oS[0])];
+            
         }
 
     }
