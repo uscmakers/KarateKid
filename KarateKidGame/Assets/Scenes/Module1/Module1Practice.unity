@@ -466,7 +466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2c681be1dce44626a95b2afbb68c20e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testMode: 1
+  testMode: 0
   boneNames:
   - mixamorig:RightShoulder
   - mixamorig:RightArm

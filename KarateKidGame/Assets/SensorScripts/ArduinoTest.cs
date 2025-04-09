@@ -10,7 +10,7 @@ public class ArduinoTest : MonoBehaviour
 
     public int numSensors;
     UnityEngine.Vector3[] finalPoses;
-    SerialPort data_stream = new SerialPort("/dev/cu.usbserial-022AB660", 115200);
+    SerialPort data_stream = new SerialPort("/dev/cu.usbserial-1130", 115200);
     public float[] length;
     // Start is called before the first frame update
     void Start()
