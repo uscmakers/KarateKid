@@ -467,10 +467,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   testMode: 0
+  portName: /dev/cu.usbserial-1130
+  baudRate: 115200
   boneNames:
   - mixamorig:RightShoulder
   - mixamorig:RightArm
   - mixamorig:RightHand
+  upperArmLength: 0.5
+  forearmLength: 0.4
 --- !u!1 &1984305335
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,6 +485,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1984305337}
   - component: {fileID: 1984305336}
+  - component: {fileID: 1984305338}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -519,6 +524,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1984305338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984305335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcd21d290785e48a0a4e350d1dd3954e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flaskServerURL: http://localhost:5050/landmarks
+  updateInterval: 0.1
+  debugLogData: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
