@@ -88,12 +88,12 @@ void OnDataRecv(const esp_now_recv_info_t *info, const uint8_t *incomingData, in
     
     // Print sender info
     // Serial.print("Received from: ");
-    printMAC(info->src_addr);
+    //printMAC(info->src_addr);
     // Serial.print(" (Sensor ");
-    Serial.print(senderIndex + 1);
+    //Serial.print(senderIndex);
     // Serial.println(")");
   } else {
-    Serial.println("Error: Too many senders or cannot identify sender");
+    //Serial.println("Error: Too many senders or cannot identify sender");
     return;
   }
   
@@ -101,14 +101,14 @@ void OnDataRecv(const esp_now_recv_info_t *info, const uint8_t *incomingData, in
   // Serial.print("Bytes received: ");
   // Serial.println(len);
   
-  struct_message &sensorData = sensorReadings[senderIndex].data;
+  // struct_message &sensorData = sensorReadings[senderIndex].data;
   
-  Serial.print(" ");
-  Serial.print(sensorData.angleX);
-  Serial.print(" ");
-  Serial.print(sensorData.angleY);
-  Serial.print(" ");
-  Serial.println(sensorData.angleZ);
+  // Serial.print(" ");
+  // Serial.print(sensorData.angleX);
+  // Serial.print(" ");
+  // Serial.print(sensorData.angleY);
+  // Serial.print(" ");
+  // Serial.println(sensorData.angleZ);
   
   // Serial.print("Acc X: ");
   // Serial.print(sensorData.accX);
@@ -122,39 +122,39 @@ void OnDataRecv(const esp_now_recv_info_t *info, const uint8_t *incomingData, in
 
 // Function to display all sensor data periodically
 void displayAllSensorData() {
-  Serial.println("\n========== CURRENT SENSOR READINGS ==========");
+  //Serial.println("\n========== CURRENT SENSOR READINGS ==========");
   
   for (int i = 0; i < 2; i++) {
     if (sensorReadings[i].mac_addr[0] != 0) {
-      Serial.print("Sensor ");
-      Serial.print(i + 1);
-      Serial.print(" (MAC: ");
-      printMAC(sensorReadings[i].mac_addr);
-      Serial.println(")");
+      //Serial.print("Sensor ");
+      Serial.print(i);
+      //Serial.print(" (MAC: ");
+      //printMAC(sensorReadings[i].mac_addr);
+      //Serial.println(")");
       
       if (sensorReadings[i].newData) {
         struct_message &data = sensorReadings[i].data;
-        Serial.print("Angle X: ");
+        Serial.print(" ");
         Serial.print(data.angleX);
-        Serial.print("\tAngle Y: ");
+        Serial.print(" ");
         Serial.print(data.angleY);
-        Serial.print("\tAngle Z: ");
+        Serial.print(" ");
         Serial.println(data.angleZ);
         
-        Serial.print("Acc X: ");
-        Serial.print(data.accX);
-        Serial.print("\tAcc Y: ");
-        Serial.print(data.accY);
-        Serial.print("\tAcc Z: ");
-        Serial.println(data.accZ);
+        // Serial.print("Acc X: ");
+        // Serial.print(data.accX);
+        // Serial.print("\tAcc Y: ");
+        // Serial.print(data.accY);
+        // Serial.print("\tAcc Z: ");
+        // Serial.println(data.accZ);
       } else {
-        Serial.println("No data received yet");
+        //Serial.println("No data received yet");
       }
-      Serial.println();
+      //Serial.println();
     }
   }
   
-  Serial.println("=============================================");
+  // Serial.println("=============================================");
 }
  
 void setup() {
@@ -181,15 +181,11 @@ void setup() {
 }
 
 unsigned long lastDisplayTime = 0;
-const unsigned long displayInterval = 5000; // Display summary every 5 seconds
+const unsigned long displayInterval = 5; // Display summary every 5 seconds
  
 void loop() {
-  // // Periodically display all sensor data
-  // unsigned long currentTime = millis();
-  // if (currentTime - lastDisplayTime >= displayInterval) {
-  //   displayAllSensorData();
-  //   lastDisplayTime = currentTime;
-  // }
+  // Periodically display all sensor data
+  displayAllSensorData();
   
-  // delay(10);  // Small delay to prevent watchdog timer issues
+  delay(10);  // Small delay to prevent watchdog timer issues
 }
