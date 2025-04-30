@@ -52,7 +52,7 @@ public class MixamoArmSimulator : MonoBehaviour
             
             try
             {
-                data_stream.set("COM11", 115200, 20, 4);
+                data_stream.set("/dev/cu.usbserial-10", 115200, 20, 4);
                 data_stream.connect();
                 print("Succesful opening port");
             }

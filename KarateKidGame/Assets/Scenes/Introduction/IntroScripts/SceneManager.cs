@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class SceneSwitcher : MonoBehaviour
 {
     [Tooltip("Name of the scene to load")]
-    public string sceneToLoad = "Module1Practice";
+    public string sceneToLoad = "ModulePractice";
 
     [Tooltip("Reference to the Countdown Timer script")]
     public CountdownTimer countdownTimer;  // Drag your timer object here

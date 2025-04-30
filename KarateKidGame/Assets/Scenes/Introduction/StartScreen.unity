@@ -245,7 +245,7 @@ MonoBehaviour:
   kidTargetPos: {x: -300, y: -8, z: 0}
   moveSpeed: 2
   waitAtTarget: 5
-  moduleSceneName: Module1Demo
+  moduleSceneName: ModuleDemo
   dojoMoveScript: {fileID: 469167294}
   maxWaitForDojo: 5
 --- !u!4 &477752794
@@ -979,7 +979,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1999117872}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54b0e4e151a4d4fcb80cae5c6a7947c1, type: 3}
   m_Name: 
@@ -990,7 +990,7 @@ MonoBehaviour:
   pressSpaceText: {fileID: 752223147}
   maxTextMoveDuration: 5
   delayBeforeDestroy: 5
-  moduleSceneName: Module1Demo
+  moduleSceneName: ModuleDemo
   textMoveScript: {fileID: 477752793}
 --- !u!4 &1999117874
 Transform:
@@ -1002,6 +1002,50 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2018087467
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2018087469}
+  - component: {fileID: 2018087468}
+  m_Layer: 0
+  m_Name: ResetGame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2018087468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018087467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65d942971c2454924a0b6feef40d158a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2018087469
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018087467}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.3341088, z: -0.7364645}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1124,3 +1168,4 @@ SceneRoots:
   - {fileID: 477752794}
   - {fileID: 1999117874}
   - {fileID: 2131719541}
+  - {fileID: 2018087469}

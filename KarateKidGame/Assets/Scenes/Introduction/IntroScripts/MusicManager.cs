@@ -8,7 +8,6 @@ public class MusicManager : MonoBehaviour
 
     void Awake()
     {
-       
         if (instance == null)
         {
             instance = this;
@@ -25,7 +24,11 @@ public class MusicManager : MonoBehaviour
         audioSource.loop = true; 
         audioSource.playOnAwake = false;
         audioSource.volume = 0.1f; 
-
         audioSource.Play();
+    }
+
+    public AudioSource GetAudioSource()
+    {
+        return audioSource;
     }
 }

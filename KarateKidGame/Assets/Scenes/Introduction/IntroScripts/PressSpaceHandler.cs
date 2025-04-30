@@ -9,7 +9,7 @@ public class PressSpaceHandler : MonoBehaviour
     public GameObject pressSpaceText; 
     public float maxTextMoveDuration = 5f; 
     public float delayBeforeDestroy = 3f; 
-    public string moduleSceneName = "Module1Demo"; 
+    public string moduleSceneName = "ModuleDemo"; 
 
     public TextMove textMoveScript; 
 
