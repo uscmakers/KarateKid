@@ -9,7 +9,7 @@
 #include <WiFi.h>
 
 // Replace with your receiver's MAC Address
-uint8_t broadcastAddress[] = {0x90, 0x15, 0x06, 0x93, 0xf2, 0x1c};
+uint8_t broadcastAddress[] = {0x90, 0x15, 0x06, 0x93, 0xf5, 0x2c};
 
 MPU6050 mpu6050(Wire);
 
