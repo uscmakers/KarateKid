@@ -158,5 +158,14 @@ public class MixamoArmSimulator : MonoBehaviour
         if (data_stream != null)
             data_stream.close();
     }
+
+        public void CloseSerial()
+    {
+        if (data_stream != null)
+        {
+            data_stream.close();
+        }
+    }
+
 }
 
